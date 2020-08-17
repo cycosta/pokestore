@@ -1,0 +1,152 @@
+.header {
+  width: 100%;
+  padding: 20px 0;
+  background-color: $poke-blue;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    color: white;
+    font-family: $logoFont;
+    font-size: 3rem;
+
+    @include breakpoint(desktop) {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__toggle:checked {
+    ~ .header__menu {
+      &::before,
+      &::after {
+        top: 50%;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      .header__icon {
+        display: none;
+      }
+    }
+
+    ~ .header__nav {
+      left: 0;
+    }
+  }
+
+  &__menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: block;
+    width: 30px;
+    height: 20px;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: white;
+      transition: .3s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    width: 80%;
+    height: 2px;
+    background-color: white;
+    transform: translateY(-50%);
+    transition: .3s;
+  }
+
+  &__nav {
+    position: absolute;
+    top: 0;
+    left: -100vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: $poke-blue;
+    transition: .3s;
+
+    @include breakpoint(desktop) {
+      position: unset;
+      height: auto;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
+    @include breakpoint(desktop) {
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin: 20px 0;
+    color: white;
+    font-family: $textFont;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+
+    @include breakpoint(desktop) {
+      margin: 0 40px 0;
+      font-size: 1.4rem;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      content: '';
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: .3s;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
