@@ -1,0 +1,33 @@
+.search {
+  width: 100%;
+  margin: 20px 0;
+
+  &__label {
+    display: flex;
+    width: 100%;
+    border: 1px solid var(--theme);
+    border-radius: 30px;
+
+    @include breakpoint(desktop) {
+      border-width: 2px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.4rem;
+
+    @include breakpoint(desktop) {
+      padding: 20px;
+      font-size: 1.6rem;
+    }
+
+    &::placeholder {
+      color: var(--theme);
+      font-family: $textFont;
+    }
+  }
+}
