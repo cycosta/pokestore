@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   padding: 20px 0;
-  background-color: $poke-blue;
+  background-color: var(--theme);
 
   &__content {
     display: flex;
@@ -40,7 +40,7 @@
     }
 
     ~ .header__nav {
-      left: 0;
+      right: 0;
     }
   }
 
@@ -80,6 +80,7 @@
   &__icon {
     position: absolute;
     top: 50%;
+    right: 0;
     width: 80%;
     height: 2px;
     background-color: white;
@@ -88,12 +89,12 @@
   }
 
   &__nav {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: -100vw;
+    right: -100vw;
     width: 100vw;
     height: 100vh;
-    background-color: $poke-blue;
+    background-color: var(--theme);
     transition: .3s;
 
     @include breakpoint(desktop) {
@@ -124,7 +125,7 @@
     text-transform: uppercase;
 
     @include breakpoint(desktop) {
-      margin: 0 40px 0;
+      margin: 0 40px 0 0;
       font-size: 1.4rem;
     }
 
