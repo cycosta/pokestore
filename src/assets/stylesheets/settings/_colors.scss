@@ -3,6 +3,14 @@ $poke-red: #CC0000;
 $poke-blue: #3B4CCA;
 $poke-yellow: #FFDE00;
 
+// Theme Colors
+$fire: #FD9615;
+$grass: #599800;
+$water: #55C3DC;
+
 :root {
   --theme: #{$poke-red};
 }
+
+// Secondary Colors
+$snow: #F2F2F2;
