@@ -1,0 +1,8 @@
+.main {
+  &__content {
+    @include breakpoint(desktop) {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+.cart {
+  @include breakpoint(desktop) {
+    padding: 20px;
+  }
+
+  &__toggle:checked ~ &__content {
+    top: 0;
+  }
+
+  &__menu {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--theme);
+    border-radius: 50px;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: .3s;
+
+    @include breakpoint(desktop) {
+      position: static;
+      width: 100%;
+      height: calc(100vh - 75px);
+    }
+  }
+}
