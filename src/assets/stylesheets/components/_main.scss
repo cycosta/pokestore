@@ -4,7 +4,15 @@
   &__content {
     @include breakpoint(desktop) {
       display: grid;
+      grid-gap: 20px;
       grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  &__selection {
+    @include breakpoint(desktop) {
+      height: calc(100vh - 115px);
+      overflow: hidden;
     }
   }
 }
