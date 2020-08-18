@@ -13,9 +13,9 @@ function Header() {
         </label>
         <nav className="header__nav">
           <ul className="header__list">
-            <li className="header__item">Fire</li>
-            <li className="header__item">Water</li>
-            <li className="header__item">Grass</li>
+            <li className="header__item">Fire Store</li>
+            <li className="header__item">Water Store</li>
+            <li className="header__item">Grass Store</li>
           </ul>
         </nav>
       </div>

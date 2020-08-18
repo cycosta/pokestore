@@ -13,6 +13,10 @@
 
   &__image {
     width: 200px;
+
+    @include breakpoint(desktop) {
+      width: 100%;
+    }
   }
 
   &__info {
@@ -54,7 +58,13 @@
     border: 0;
     border-radius: 50px;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
-    transition: .3s;
+    transform: translate(-1px, -1px);
+    transition: .2s;
+
+    &:active {
+      box-shadow: none;
+      transform: translate(0, 0);
+    }
   }
 
   &__icon {

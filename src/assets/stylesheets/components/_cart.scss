@@ -1,10 +1,7 @@
 .cart {
-  @include breakpoint(desktop) {
-    padding: 20px;
-  }
-
   &__toggle:checked ~ &__content {
     top: 0;
+    transform: scaleY(1);
   }
 
   &__menu {
@@ -19,6 +16,7 @@
     height: 50px;
     background-color: var(--theme);
     border-radius: 50px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
 
     @include breakpoint(desktop) {
       display: none;
@@ -31,12 +29,103 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    padding: 20px;
+    background-color: white;
+    transform: scaleY(0);
     transition: .3s;
 
     @include breakpoint(desktop) {
       position: static;
       width: 100%;
-      height: calc(100vh - 75px);
+      height: 100%;
+      transform: none;
     }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: var(--theme);
+    font-family: $textFont;
+    font-size: 2.6rem;
+    font-weight: 600;
+  }
+
+  &__list {
+    @include breakpoint(desktop) {
+      height: calc(100vh - 340px);
+      overflow: auto;
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    border: 2px solid var(--theme);
+    border-radius: 10px;
+
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__item-figure {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: rgba($color: var(--theme), $alpha: .6);
+    border-radius: 100px;
+  }
+
+  &__item-image {
+    width: 100%;
+  }
+
+  &__item-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    color: var(--theme);
+    font-family: $textFont;
+  }
+
+  &__item-title {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  &__item-value {
+    margin-top: 5px;
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
+  &__total {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px 0;
+    color: var(--theme);
+    border-top: 1px solid $snow;
+    font-family: $textFont;
+    font-size: 2rem;
+    font-weight: 400;
+  }
+
+  &__total-value {
+    font-weight: 600;
+  }
+
+  &__button {
+    width: 100%;
+    padding: 20px;
+    color: white;
+    background-color: var(--theme);
+    border: 0;
+    font-family: $textFont;
+    font-size: 1.4rem;
   }
 }
