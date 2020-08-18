@@ -1,9 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-function List() {
+import Card from './Card'
+
+function List({ pokemons }) {
   return (
-    <div className="list"></div>
+    <ul className="list">
+      {pokemons.map(({ name, url }) => <Card key={name} title={name} url={url} />)}
+    </ul>
   )
+}
+
+List.propTypes = {
+  pokemons: PropTypes.array,
 }
 
 export default List
