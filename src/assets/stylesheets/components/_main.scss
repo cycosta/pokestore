@@ -1,4 +1,6 @@
 .main {
+  margin: 20px 0;
+
   &__content {
     @include breakpoint(desktop) {
       display: grid;
