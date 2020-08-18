@@ -10,7 +10,7 @@
 
   @include breakpoint(desktop) {
     grid-template-columns: repeat(4, 1fr);
-    max-height: 100vh;
+    max-height: 100%;
     overflow: auto;
   }
 }
