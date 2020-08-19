@@ -25,7 +25,7 @@ function Cart({ selected, setSelected }) {
         <div className="cart__bottom">
           <div className="cart__total">
             <h3>Total:</h3>
-            <p className="cart__total-value">$50,00</p>
+            <p className="cart__total-value">${selected.length * 10},00</p>
           </div>
           <button className="cart__button">Checkout</button>
         </div>

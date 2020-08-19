@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 import { getImage } from '../assets/javascript/pokemon'
 
 function Card({ url, name, selected, setSelected }) {
-  const pokemon = {
-    url,
-    name
-  };
+  function addToCart() {
+    const pokemon = { url, name }
+    if (!selected.find(pokemon => pokemon.name == name)) {
+      setSelected([...selected, pokemon])
+    }
+  }
 
   return (
     <li className="card">
@@ -20,7 +22,7 @@ function Card({ url, name, selected, setSelected }) {
       </figure>
       {/* setSelected expects an array as a parameter. This array must contain the current
       selected (spread) array plus the new clicked pokemon */}
-      <button className="card__button" onClick={() => setSelected([...selected, pokemon])}>
+      <button className="card__button" onClick={() => addToCart()}>
         <span className="card__icon"></span>
       </button>
     </li>
