@@ -27,8 +27,8 @@
     min-height: 120px;
     margin-top: 10px;
     padding: 0 20px;
-    color: white;
-    background-color: var(--theme);
+    color: $onyx;
+    background-color: $snow;
     border-radius: 10px;
     font-family: $textFont;
   }
@@ -54,10 +54,10 @@
     align-items: center;
     width: 40px;
     height: 40px;
-    background-color: rgba($color: #fff, $alpha: .3);
+    background-color: var(--theme);
     border: 0;
     border-radius: 50px;
-    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
+    box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .2);
     transform: translate(-1px, -1px);
     transition: .2s;
 

@@ -4,6 +4,8 @@
   background-color: var(--theme);
 
   &__content {
+    @extend .container;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,31 +21,6 @@
     }
   }
 
-  &__toggle:checked {
-    ~ .header__menu {
-      &::before,
-      &::after {
-        top: 50%;
-      }
-
-      &::before {
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        transform: rotate(-45deg);
-      }
-
-      .header__icon {
-        display: none;
-      }
-    }
-
-    ~ .header__nav {
-      right: 0;
-    }
-  }
-
   &__menu {
     position: relative;
     top: 0;
@@ -52,6 +29,9 @@
     display: block;
     width: 30px;
     height: 20px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
 
     @include breakpoint(desktop) {
       display: none;
@@ -74,6 +54,25 @@
 
     &::after {
       bottom: 0;
+    }
+
+    &--close {
+      &::before,
+      &::after {
+        top: 50%;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+
+      .header__icon {
+        display: none;
+      }
     }
   }
 
@@ -101,6 +100,10 @@
     @include breakpoint(desktop) {
       position: unset;
       height: auto;
+    }
+
+    &--open {
+      right: 0;
     }
   }
 
