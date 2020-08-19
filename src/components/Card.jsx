@@ -1,20 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Card(props) {
-  const id = props.url.match(/(\d+)\/$/)[1]
-  const image = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+import { getImage } from '../assets/javascript/pokemon'
+
+function Card({ url, name, selected, setSelected }) {
+  const pokemon = {
+    url,
+    name
+  };
 
   return (
     <li className="card">
       <figure className="card__figure">
-        <img className="card__image" src={image} alt={props.title} />
+        <img className="card__image" src={getImage(url)} alt={name} />
         <figcaption className="card__info">
-          <h2 className="card__title">{props.title}</h2>
+          <h2 className="card__title">{name}</h2>
           <p className="card__value">$10,00</p>
         </figcaption>
       </figure>
-      <button className="card__button">
+      {/* setSelected expects an array as a parameter. This array must contain the current
+      selected (spread) array plus the new clicked pokemon */}
+      <button className="card__button" onClick={() => setSelected([...selected, pokemon])}>
         <span className="card__icon"></span>
       </button>
     </li>
@@ -22,8 +28,10 @@ function Card(props) {
 }
 
 Card.propTypes = {
-  title: PropTypes.string,
-  url: PropTypes.string
+  name: PropTypes.string,
+  url: PropTypes.string,
+  selected: PropTypes.array,
+  setSelected: PropTypes.func
 }
 
 export default Card

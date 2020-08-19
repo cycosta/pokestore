@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import cart from '../assets/images/cart.png'
 import freezeScroll from '../assets/javascript/freezeScroll'
+import CartItem from './CartItem'
 
-function Cart() {
+function Cart({ selected, setSelected }) {
   const [cartOpen, setCartOpen] = useState(false)
 
   useEffect(() => freezeScroll(cartOpen))
@@ -16,42 +18,9 @@ function Cart() {
       <div className={`cart__content ${cartOpen ? 'cart__content--open' : ''}`}>
         <h2 className="cart__title">Your cart</h2>
         <ul className="cart__list">
-          <li className="cart__item">
-            <div className="cart__item-figure">
-              <img className="cart__item-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="" />
-            </div>
-            <div className="cart__item-info">
-              <h2 className="cart__item-title">Pikachu</h2>
-              <p className="cart__item-value">$10,00</p>
-            </div>
-            <button className="cart__item-button">
-              <span className="cart__item-icon"></span>
-            </button>
-          </li>
-          <li className="cart__item">
-            <div className="cart__item-figure">
-              <img className="cart__item-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png" alt="" />
-            </div>
-            <div className="cart__item-info">
-              <h2 className="cart__item-title">Vulpix</h2>
-              <p className="cart__item-value">$10,00</p>
-            </div>
-            <button className="cart__item-button">
-              <span className="cart__item-icon"></span>
-            </button>
-          </li>
-          <li className="cart__item">
-            <div className="cart__item-figure">
-              <img className="cart__item-image" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="" />
-            </div>
-            <div className="cart__item-info">
-              <h2 className="cart__item-title">Bulbasaur</h2>
-              <p className="cart__item-value">$10,00</p>
-            </div>
-            <button className="cart__item-button">
-              <span className="cart__item-icon"></span>
-            </button>
-          </li>
+          {selected.map(({ name, url }) => (
+            <CartItem key={name} name={name} url={url} selected={selected} setSelected={setSelected} />
+          ))}
         </ul>
         <div className="cart__bottom">
           <div className="cart__total">
@@ -63,6 +32,11 @@ function Cart() {
       </div>
     </div>
   )
+}
+
+Cart.propTypes = {
+  selected: PropTypes.array,
+  setSelected: PropTypes.func
 }
 
 export default Cart
