@@ -9,11 +9,13 @@ import List from './List'
 function Main() {
   const [pokemons, setPokemons] = useState([])
 
+  const [selected, setSelected] = useState([])
+
   useEffect(() => {
     getPokemons().then((data) => {
       setPokemons(data.results)
     })
-  })
+  }, [])
 
   return (
     <main className="main">
@@ -21,9 +23,9 @@ function Main() {
         <div className="main__content">
           <div className="main__selection">
             <Search />
-            <List pokemons={pokemons} />
+            <List pokemons={pokemons} selected={selected} setSelected={setSelected} />
           </div>
-          <Cart />
+          <Cart selected={selected} setSelected={setSelected} />
         </div>
       </div>
     </main>
