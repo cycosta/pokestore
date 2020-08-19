@@ -6,4 +6,8 @@ html {
   *:after {
     box-sizing: inherit;
   }
+
+  &.freeze-scroll {
+    overflow-y: hidden;
+  }
 }

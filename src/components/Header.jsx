@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
+import freezeScroll from '../assets/javascript/freezeScroll'
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
+
+  useEffect(() => freezeScroll(menuOpen))
+
   return (
     <header className="header">
-      <div className="header__content container">
+      <div className="header__content">
         <h1 className="header__logo">
           pokestore
         </h1>
-        <input type="checkbox" id="header__toggle" className="header__toggle" hidden />
-        <label htmlFor="header__toggle" className="header__menu">
+        <button onClick={() => setMenuOpen(!menuOpen)} className={`header__menu ${menuOpen ? 'header__menu--close' : ''}`}>
           <div className="header__icon"></div>
-        </label>
-        <nav className="header__nav">
+        </button>
+        <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__list">
             <li className="header__item">Fire Store</li>
             <li className="header__item">Water Store</li>
