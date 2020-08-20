@@ -18,8 +18,8 @@ function Cart({ selected, setSelected }) {
       <div className={`cart__content ${cartOpen ? 'cart__content--open' : ''}`}>
         <h2 className="cart__title">Your cart</h2>
         <ul className="cart__list">
-          {selected.map(({ name, url }) => (
-            <CartItem key={name} name={name} url={url} selected={selected} setSelected={setSelected} />
+          {selected.map((pokemon) => (
+            <CartItem key={pokemon.name} pokemon={pokemon} selected={selected} setSelected={setSelected} />
           ))}
         </ul>
         <div className="cart__bottom">
