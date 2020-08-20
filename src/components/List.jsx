@@ -6,9 +6,9 @@ import Card from './Card'
 function List({ pokemons, selected, setSelected }) {
   return (
     <ul className="list">
-      {pokemons.map(({ name, url }) => (
-        <Card key={name} name={name} url={url} selected={selected} setSelected={setSelected} />
-      ))}
+      {pokemons.length > 0 ? pokemons.map((pokemon) => (
+        <Card key={pokemon.name} pokemon={pokemon} selected={selected} setSelected={setSelected} />
+      )) : <li className="list__noresult">Oops! No Pokemons.</li>}
     </ul>
   )
 }

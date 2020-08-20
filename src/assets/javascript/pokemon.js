@@ -4,8 +4,8 @@ export function getId(url) {
   }
 }
 
-export function getImage(url) {
-  const id = getId(url)
-  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`
+export function getImage({ id, url }) {
+  const pokeId = id || getId(url)
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeId}.png`
 }
 
