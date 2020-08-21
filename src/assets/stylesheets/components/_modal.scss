@@ -1,0 +1,85 @@
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  &__mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .6);
+  }
+
+  &--open {
+    display: flex;
+  }
+
+  &__content {
+    position: relative;
+    padding: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, .2);
+  }
+
+  &__header {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    color: $onyx;
+    border-bottom: 1px solid $snow;
+    font-family: $textFont;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  &__body {
+    color: $onyx;
+    font-family: $textFont;
+    font-size: 1.6rem;
+  }
+
+  &__value {
+    font-weight: 600;
+  }
+
+  &__close {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: var(--theme);
+    border: 0;
+    border-radius: 50px;
+  }
+
+  &__icon {
+    position: relative;
+    display: block;
+    width: 10px;
+    height: 2px;
+    background-color: white;
+    transform: rotate(45deg);
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      width: 10px;
+      height: 2px;
+      background-color: white;
+      transform: rotate(90deg);
+    }
+  }
+}

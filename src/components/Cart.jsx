@@ -4,11 +4,24 @@ import PropTypes from 'prop-types'
 import cart from '../assets/images/cart.png'
 import freezeScroll from '../assets/javascript/freezeScroll'
 import CartItem from './CartItem'
+import Modal from './Modal'
 
 function Cart({ selected, setSelected }) {
   const [cartOpen, setCartOpen] = useState(false)
 
+  const [modalOpen, setModalOpen] = useState(false)
+
+  const [total, setTotal] = useState(0)
+
+  const [cashback, setCashback] = useState(0)
+
   useEffect(() => freezeScroll(cartOpen))
+
+  useEffect(() => {
+    const total = selected.length * 10
+    setTotal(total)
+    setCashback(total * 0.1)
+  }, [selected])
 
   return (
     <div className="cart">
@@ -25,11 +38,12 @@ function Cart({ selected, setSelected }) {
         <div className="cart__bottom">
           <div className="cart__total">
             <h3>Total:</h3>
-            <p className="cart__total-value">${selected.length * 10},00</p>
+            <p className="cart__total-value">${total},00</p>
           </div>
-          <button className="cart__button">Checkout</button>
+          <button className="cart__button" onClick={() => setModalOpen(!modalOpen)}>Checkout</button>
         </div>
       </div>
+      <Modal cashback={cashback} modalOpen={modalOpen} setModalOpen={setModalOpen} setSelected={setSelected} />
     </div>
   )
 }
