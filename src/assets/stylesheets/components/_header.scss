@@ -13,6 +13,7 @@
 
   &__logo {
     color: white;
+    cursor: pointer;
     font-family: $logoFont;
     font-size: 3rem;
 
@@ -124,6 +125,7 @@
     position: relative;
     margin: 20px 0;
     color: white;
+    cursor: pointer;
     font-family: $textFont;
     font-size: 1.6rem;
     text-transform: uppercase;
