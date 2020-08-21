@@ -1,28 +1,25 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 
 import freezeScroll from '../assets/javascript/freezeScroll'
-import storeThemes from '../assets/javascript/theme'
+import { types } from '../assets/javascript/pokemon'
 
-function Header() {
-  const { standard, fire, water, grass } = storeThemes
+function Header({ setTheme }) {
+  const { standard, fire, water, grass } = types
 
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const [theme, setTheme] = useState(standard)
-
-  function changeTheme(theme) {
-    document.documentElement.style.setProperty('--theme', theme)
+  function navigationClick(theme) {
+    setTheme(theme)
     setMenuOpen(false)
   }
 
   useEffect(() => freezeScroll(menuOpen), [menuOpen])
 
-  useEffect(() => changeTheme(theme), [theme])
-
   return (
     <header className="header">
       <div className="header__content">
-        <h1 className="header__logo" onClick={() => setTheme(standard)}>
+        <h1 className="header__logo" onClick={() => navigationClick(standard)}>
           pokestore
         </h1>
         <button onClick={() => setMenuOpen(!menuOpen)} className={`header__menu ${menuOpen ? 'header__menu--close' : ''}`}>
@@ -30,14 +27,18 @@ function Header() {
         </button>
         <nav className={`header__nav ${menuOpen ? 'header__nav--open' : ''}`}>
           <ul className="header__list">
-            <li className="header__item" onClick={() => setTheme(fire)}>Fire Store</li>
-            <li className="header__item" onClick={() => setTheme(water)}>Water Store</li>
-            <li className="header__item" onClick={() => setTheme(grass)}>Grass Store</li>
+            <li className="header__item" onClick={() => navigationClick(fire)}>Fire Store</li>
+            <li className="header__item" onClick={() => navigationClick(water)}>Water Store</li>
+            <li className="header__item" onClick={() => navigationClick(grass)}>Grass Store</li>
           </ul>
         </nav>
       </div>
     </header>
   )
+}
+
+Header.propTypes = {
+  setTheme: PropTypes.func
 }
 
 export default Header

@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { getPokemons, getPokemon } from '../services/api'
+import PropTypes from 'prop-types'
+
+import { getPokemons, getPokemon, getPokemonsByType } from '../services/api'
 
 // Components
 import Search from './Search'
 import Cart from './Cart'
 import List from './List'
 
-function Main() {
+function Main({ theme }) {
   const [pokemons, setPokemons] = useState([])
 
   const [selected, setSelected] = useState([])
@@ -14,19 +16,22 @@ function Main() {
   const [keyword, setKeyword] = useState('')
 
   useEffect(() => {
-    if (keyword) {
-      getPokemon(keyword).then((data) => {
-        if (data) {
-          setPokemons([data])
-        } else {
-          setPokemons([])
-        }
-      })
-    } else {
-      getPokemons().then((data) => {
-        setPokemons(data.results)
-      })
-    }
+    getPokemons().then((data) => setPokemons(data))
+  }, [])
+
+  useEffect(() => {
+    getPokemonsByType(theme.id).then((data) => setPokemons(data))
+  }, [theme])
+
+  useEffect(() => {
+    if (!keyword) return
+    getPokemon(keyword).then((data) => {
+      if (data) {
+        setPokemons([data])
+      } else {
+        setPokemons([])
+      }
+    })
   }, [keyword])
 
   return (
@@ -42,6 +47,10 @@ function Main() {
       </div>
     </main>
   )
+}
+
+Main.propTypes = {
+  theme: PropTypes.object
 }
 
 export default Main

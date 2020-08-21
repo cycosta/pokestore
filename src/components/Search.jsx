@@ -20,6 +20,7 @@ function Search({ setKeyword }) {
         placeholder="Find your Pokémon"
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
+        required
       />
       <button type="submit" className="search__button">
         <Pokeball />
