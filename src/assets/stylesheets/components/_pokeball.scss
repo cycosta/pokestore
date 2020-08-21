@@ -1,9 +1,9 @@
 .pokeball {
-  width: 40px;
-  margin-right: 5px;
+  width: 35px;
+  margin-right: 7px;
   fill: var(--theme);
 
   @include breakpoint(desktop) {
-    width: 50px;;
+    width: 45px;
   }
 }
