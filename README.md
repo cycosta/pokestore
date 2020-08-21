@@ -4,31 +4,21 @@
 
 - [Javascript ES6](https://www.w3schools.com/js/js_es6.asp) - [Documentation](http://es6-features.org/#Constants ':target=_blank')
 
----
-
 ## Framework
 
 - [React.js](https://reactjs.org/) 16.13.1 - | [Documentation](https://reactjs.org/docs/getting-started.html ':target=_blank')
-
----
 
 ## Methodologies
 
 - [BEM](http://getbem.com/ ':target=_blank')
 
----
-
 ## Tools
 
 - [Create React App](https://github.com/facebook/create-react-app)
 
----
-
 ## API
 
 - [PokéAPI](https://pokeapi.co/)
-
----
 
 ## Available Scripts
 
