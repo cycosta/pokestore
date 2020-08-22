@@ -8,7 +8,7 @@ export function getPokemons() {
 
 // Get Pokemon by name
 export function getPokemon(keyword) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${keyword}`)
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${keyword.toLowerCase()}`)
     .then(response => response.json())
     .catch((error) => console.error(error))
 }

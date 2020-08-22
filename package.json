@@ -41,5 +41,5 @@
     "prop-types": "^15.7.2",
     "stylelint": "^13.6.1",
     "stylelint-config-outside-in-order": "0.0.1"
-  },
+  }
 }
