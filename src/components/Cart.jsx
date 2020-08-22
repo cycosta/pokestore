@@ -26,6 +26,9 @@ function Cart({ selected, setSelected }) {
   return (
     <div className="cart">
       <button onClick={() => setCartOpen(!cartOpen)} className="cart__menu">
+        <span className="cart__items">
+          {selected.length}
+        </span>
         <img src={cart} alt="Cart"/>
       </button>
       <div className={`cart__content ${cartOpen ? 'cart__content--open' : ''}`}>
