@@ -101,6 +101,7 @@
     @include breakpoint(desktop) {
       position: unset;
       height: auto;
+      background-color: transparent;
     }
 
     &--open {
