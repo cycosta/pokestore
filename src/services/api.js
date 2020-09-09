@@ -2,10 +2,7 @@
 export function getPokemons() {
   return fetch('https://pokeapi.co/api/v2/pokemon?limit=150')
     .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      return data.results
-    })
+    .then(data => data.results)
     .catch((error) => console.error(error))
 }
 
